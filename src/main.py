@@ -1,5 +1,5 @@
 import data
-from strategies import choose_random
+from strategies import choose_random 
 
 
 
