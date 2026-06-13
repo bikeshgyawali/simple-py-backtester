@@ -15,11 +15,14 @@ def backtest(portfolio, shares, ticker, start_date, end_date):
 
     curr = data.get_spy_data(ticker, start_date, end_date)
 
-    for eod_close_price in curr:
+    last_price = 0.0
 
-        eod_close_price, portfolio, shares = choose_random.choose_random(eod_close_price, portfolio, shares)
+    for price in curr:
 
-    total_final_value = portfolio + (shares * eod_close_price)
+        portfolio, shares = choose_random.choose_random(price, portfolio, shares)
+        last_price = price
+
+    total_final_value = portfolio + (shares * last_price)
     return total_final_value
 
 
