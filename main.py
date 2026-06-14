@@ -1,7 +1,10 @@
 from src.data import data
 from src.strategies import choose_random
-from src import config
 from src.strategies import buy_hold
+from src.strategies import short_SMA
+from src.strategies import long_SMA
+
+from src import config
 
 settings = config.load_config()
 
@@ -14,7 +17,9 @@ end_date = settings["data"]["end_date"]
 available_strategies = {
 
     "random" : choose_random.choose_random,
-    "buy and hold" : buy_hold.buy_hold
+    "buy and hold" : buy_hold.buy_hold,
+    "short term SMA" : short_SMA.short_SMA,
+    "long term SMA" : long_SMA.long_SMA
 
 }
 
